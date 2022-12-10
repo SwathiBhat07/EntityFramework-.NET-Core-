@@ -1,7 +1,44 @@
 ﻿
+
+@model List<Category> //this has the List of all the categories
 @{
     ViewData["Title"] = "Index";
 }
 
+
+
 <h1>Index Category</h1>
 
+<table class="table  table-hover table-striped" style="100%">
+    <thead>
+        <tr class="table-primary">
+            <th>
+                Category_Id
+            </th>
+            <th>
+                Category_Name
+            </th>
+            <th>
+                Display_Sequence
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr class="table-primary">
+                <td class ="table-success" width="50%">
+                    @obj.Id
+                </td>
+                <td class="table-success" width="50%">
+                    @obj.Name
+                </td>
+                <td class="table-success" width="50%">
+                    @obj.DisplaySeq
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>

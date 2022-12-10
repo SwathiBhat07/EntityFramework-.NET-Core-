@@ -15,10 +15,17 @@ namespace BulkyBookWeb.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Category> CategoryList = _db.Categories; //Used Ienumerable to display all the categories
-            return View(CategoryList);
+            //IEnumerable<Category> CategoryList = _db.Categories; //Used Ienumerable to display all the categories
+            //return View(CategoryList);
+            //Using List datatype
+            var List = _db.Categories.Select(x => new Category {
+                Id = x.Id,
+                Name = x.Name,
+                DisplaySeq = x.DisplaySeq
+            }).ToList();
 
-          
+            ViewBag.List = List;
+            return View(ViewBag.List);
         }
     }
 }
