@@ -1,6 +1,6 @@
 ﻿
 
-@model List<Category> //this has the List of all the categories
+@model List<Category> //this has the List of all the categories and model should be always in lowecase.
 @{
     ViewData["Title"] = "Index";
 }
@@ -34,7 +34,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var obj in Model)
+        @foreach(var obj in Model)//here the Model should be always .......M(caps)
         {
             <tr class="table-bordered table-primary">
                 <td  width="50%">

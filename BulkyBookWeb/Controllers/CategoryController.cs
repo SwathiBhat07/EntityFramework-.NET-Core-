@@ -27,9 +27,27 @@ namespace BulkyBookWeb.Controllers
             ViewBag.List = List;
             return View(ViewBag.List);
         }
+        //GET
         public IActionResult Create()
         {
             return View();
+        }
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category category)
+        {
+            if (category.Name == category.DisplaySeq.ToString())
+            {
+                ModelState.AddModelError("CustomError", "The name and displayseq should not be same");//server side validation
+            }
+            if(ModelState.IsValid)
+            {
+                _db.Categories.Add(category);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(category);
         }
     }
 }

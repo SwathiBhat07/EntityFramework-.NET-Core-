@@ -7,15 +7,24 @@
             <h2 class="text-black">Create new Category</h2>
             <hr />
         </div>
+        <div asp-validation-summary="All" class="text-danger"></div> @*all fields validation are taken with the help of tag helper in asp*@
         <div class="mb-3">
             <label asp-for="Name"></label>
             <input asp-for="Name" class="form-control" />
+         @*   <span asp-validation-for="Name" class="text-danger"></span> this is for the single field validation using <span>*@
         </div>
         <div class="mb-3">
             <label asp-for="DisplaySeq"></label>
             <input asp-for="DisplaySeq" class="form-control" />
+            @*<span asp-validation-for="DisplaySeq" class="text-danger"></span>*@
         </div>
         <button type ="submit" class="btn btn-dark" style="width:150px">CREATE</button>
         <a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">BACK TO LIST</a>
     </div>
 </form>
+@*For Client side validation are done here where we have to use partial view *@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"> </partial>
+    }
+}
