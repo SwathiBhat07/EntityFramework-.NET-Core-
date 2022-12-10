@@ -27,5 +27,9 @@ namespace BulkyBookWeb.Controllers
             ViewBag.List = List;
             return View(ViewBag.List);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

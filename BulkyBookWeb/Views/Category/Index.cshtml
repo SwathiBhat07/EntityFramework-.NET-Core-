@@ -6,12 +6,22 @@
 }
 
 
-
-<h1>Index Category</h1>
-
+@*
+<h1>Index Category</h1>*@
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-dark">CATEGORY LIST</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-dark text-black">
+                <i class="bi bi-plus-circle-fill"></i>&nbsp; CREATE NEW CATEGORY</a>
+        </div>
+    </div>
+    <br />
 <table class="table  table-hover table-striped" style="100%">
     <thead>
-        <tr class="table-primary">
+        <tr class="table-dark">
             <th>
                 Category_Id
             </th>
@@ -26,19 +36,18 @@
     <tbody>
         @foreach(var obj in Model)
         {
-            <tr class="table-primary">
-                <td class ="table-success" width="50%">
+            <tr class="table-bordered table-primary">
+                <td  width="50%">
                     @obj.Id
                 </td>
-                <td class="table-success" width="50%">
+                <td  width="50%">
                     @obj.Name
                 </td>
-                <td class="table-success" width="50%">
+                <td  width="50%">
                     @obj.DisplaySeq
                 </td>
             </tr>
         }
     </tbody>
-
-
 </table>
+</div>
