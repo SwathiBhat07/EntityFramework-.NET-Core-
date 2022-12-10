@@ -6,6 +6,9 @@
 }
 
 
+
+<partial name="_Notification" />  
+
 @*
 <h1>Index Category</h1>*@
 <div class="container p-3">
@@ -22,29 +25,43 @@
 <table class="table  table-hover table-striped" style="100%">
     <thead>
         <tr class="table-dark">
-            <th>
+            @*<th>
                 Category_Id
-            </th>
+            </th>*@
             <th>
                 Category_Name
             </th>
             <th>
                 Display_Sequence
             </th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach(var obj in Model)//here the Model should be always .......M(caps)
         {
             <tr class="table-bordered table-primary">
-                <td  width="50%">
+               @* <td  width="50%">
                     @obj.Id
-                </td>
+                </td>*@
                 <td  width="50%">
                     @obj.Name
                 </td>
                 <td  width="50%">
                     @obj.DisplaySeq
+                </td>
+                <td>
+                    <div class="w-30  btn-group" role="group">
+                            <a asp-controller="Category" asp-action="Edit" asp-route-ID="@obj.Id"><i class="bi bi-pencil-fill"></i></a>
+                    </div>
+
+                </td>
+                <td>
+                     <div class="w-30  btn-group" role="group">
+                            <a asp-controller="Category" asp-action="Delete" asp-route-ID="@obj.Id"><i class="bi bi-trash-fill"></i></a>
+                    </div>
+
                 </td>
             </tr>
         }
